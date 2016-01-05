@@ -57,19 +57,7 @@ install_and_cache_deps() {
   npm --unsafe-perm prune 2>&1 | indent
   cp -r node_modules $build_dir
   PATH=$build_dir/node_modules/.bin:$PATH
-  install_bower_deps
   cd - > /dev/null
-}
-
-install_bower_deps() {
-  local bower_dir=$build_dir/bower.json
-
-  if [ -f $bower_dir ]; then
-    info "Installing and caching bower components"
-    cp -f $bower_dir ./
-    bower install
-    cp -r bower_components $build_dir
-  fi
 }
 
 compile() {

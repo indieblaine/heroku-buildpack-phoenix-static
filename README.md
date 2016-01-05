@@ -11,14 +11,13 @@ This buildpack is meant to be used with the [Heroku Buildpack for Elixir](https:
 * Automatically sets `DATABASE_URL` and includes `heroku-postgresql:hobby-dev` addon
 * If your app doesn't have a Procfile, default web task `mix phoenix.server` will be run
 * Can configure versions for Node and NPM
-* Auto-installs Bower deps if `bower.json` is in your app's root path
-* Caches Node, NPM modules and Bower components
+* Caches Node and NPM modules
 
 ## Usage
 
 ```bash
 # Set the buildpack for your Heroku app
-heroku buildpacks:set https://github.com/indieblaine/heroku-buildpack-phoenix-static
+heroku buildpacks:set https://github.com/indieblaine/heroku-buildpack-phoenix-static.git#no-bower
 
 # Add this buildpack after the Elixir buildpack
 heroku buildpacks:add --index 1 https://github.com/HashNuke/heroku-buildpack-elixir
